@@ -1,4 +1,5 @@
 import math
+import requests
 
 class DicewarePasswordGenerator:
     def __init__(self):
@@ -17,10 +18,12 @@ class DicewarePasswordGenerator:
                 self.generated_numbers.append(diceware_number)
 
     def download_diceware_list(self):
-        pass
+        url = 'http://world.std.com/~reinhold/diceware.wordlist.asc'
+        r = requests.get(url, allow_redirects=True)
+        open('diceware.wordlist.asc', 'wb').write(r.content)
 
     def find_diceware_words(self):
-        wordlist = open('C:/Users/danielpeac/Desktop/diceware/diceware.wordlist.asc', 'r')
+        wordlist = open('C:/Users/danielpeac/git repos/dicewarediceware.wordlist.asc', 'r')
         for line in wordlist:
             for x in self.generated_numbers:
                 if x in line:

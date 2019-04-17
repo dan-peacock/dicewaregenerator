@@ -7,7 +7,7 @@ class DicewarePasswordGenerator:
         self.number_of_words = 0
         self.generated_numbers = []
         self.generated_password = []
-        self.path = os.path.dirname(__file__)
+        self.current_directory_path = os.path.dirname(__file__)
     
     def take_user_input(self):
         self.number_of_words = int(input("How many diceware words do you want to use? ")) 
@@ -25,8 +25,8 @@ class DicewarePasswordGenerator:
         open('diceware2.wordlist.asc', 'wb').write(r.content)
 
     def find_diceware_words(self):
-        self.finalpath = self.path+'/diceware2.wordlist.asc'
-        wordlist = open(self.finalpath, 'r')
+        self.full_path = self.current_directory_path+'/diceware2.wordlist.asc'
+        wordlist = open(self.full_path, 'r')
         for line in wordlist:
             for x in self.generated_numbers:
                 if x in line:

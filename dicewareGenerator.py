@@ -45,3 +45,10 @@ class DicewarePasswordGenerator:
         password_length = sum + (len(self.generated_password) - 1)
         password_entropy = math.log2(7776**password_length)
         print(f"\nThe entropy of your password is {password_entropy}")
+
+DicewarePasswordGenerator = DicewarePasswordGenerator()
+DicewarePasswordGenerator.take_user_input()
+DicewarePasswordGenerator.download_diceware_list()
+DicewarePasswordGenerator.find_diceware_words()
+DicewarePasswordGenerator.print_password()
+DicewarePasswordGenerator.calculate_entropy()
